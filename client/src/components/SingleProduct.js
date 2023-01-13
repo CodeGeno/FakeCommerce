@@ -16,7 +16,6 @@ function SingleProduct({ product }) {
         <div className='img-container'>
           <div className='img-box'>
             <img
-              crossorigin='anonymous'
               className='product-img'
               src='https://via.placeholder.com/150x150'
             />

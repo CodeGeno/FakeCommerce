@@ -4,6 +4,7 @@ import morgan from 'morgan'
 import helmet from 'helmet'
 import xss from 'xss-clean'
 import mongoSanitize from 'express-mongo-sanitize'
+import cors from 'cors'
 
 const app = express()
 import { dirname } from 'path'
@@ -57,6 +58,7 @@ app.use(
 
 app.use(xss())
 app.use(mongoSanitize())
+app.use(cors())
 
 // only when ready to deploy
 app.use(express.static(path.resolve(__dirname, './client/build')))

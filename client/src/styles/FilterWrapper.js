@@ -41,7 +41,7 @@ export const Wrapper = styled.div`
     width: 100%;
     max-width: 100%;
     margin-top: 0.5rem;
-    padding: 0.5rem;
+    padding: 1rem;
   }
   .form-input,
   .form-select,

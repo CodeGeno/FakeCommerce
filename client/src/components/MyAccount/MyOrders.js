@@ -16,7 +16,7 @@ function MyOrders() {
           setShow(!show)
         }}
       >
-        My orders
+        {show ? 'Hide orders' : 'My orders'}
       </button>
       {show && myOrders.length === 0 && (
         <h4>There is no order for this account !</h4>

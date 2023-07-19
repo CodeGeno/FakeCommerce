@@ -127,6 +127,28 @@ const Wrapper = styled.div`
       width: 80%;
     }
   }
+  .empty-cart-section {
+    display: flex;
+    width: 100%;
+    background-color: var(--primary-500);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+  .home-button-section {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 2rem 0;
+    font-size: 2.4rem;
+  }
   @media (max-width: 992px) {
     .page-title {
       font-size: 1.4rem;
@@ -180,7 +202,7 @@ const Wrapper = styled.div`
       font-size: 1.4rem;
       margin-bottom: 2rem;
     }
-  } ;
+  }
 `
 
 export default Wrapper

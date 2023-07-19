@@ -25,8 +25,8 @@ function Authentication() {
   }, [user, navigate])
 
   const initialState = {
-    email: '',
-    password: '',
+    email: 'JohnDoe@gmail.com',
+    password: 'admin1234',
   }
   const [isRegistering, setIsRegistering] = useState(false)
   const [credentials, setCredentials] = useState(initialState)
@@ -46,7 +46,7 @@ function Authentication() {
   }
   return (
     <Wrapper>
-      <form className='form' onSubmit={onSubmit}>
+      <form className='form' onSubmit={onSubmit} autoComplete='on'>
         <h2 className='center'>{isRegistering ? 'Register' : 'Login'}</h2>
         {showAlert && (
           <>
@@ -62,6 +62,7 @@ function Authentication() {
         />
         <label>Password</label>
         <input
+          autoComplete='off'
           name='password'
           type='password'
           value={credentials.password}

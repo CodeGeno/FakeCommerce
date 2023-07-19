@@ -4,12 +4,16 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
   .payment-section {
     width: 90%;
     display: flex;
     flex-direction: row;
     gap: 10px;
+    margin: 0 0 2rem 0;
+  }
+  .label {
+    padding: 0.5rem 0;
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -25,6 +29,7 @@ const Wrapper = styled.div`
     flex-basis: 50%;
     align-items: center;
     display: flex;
+    width: 100;
     height: 100%;
     align-self: center;
     box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
@@ -152,9 +157,8 @@ const Wrapper = styled.div`
       0px 2px 5px 0px rgba(50, 50, 93, 0.1),
       0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
     border-radius: 7px;
-    padding: 40px;
-    background-color: #ffffff;
-    height: 100%;
+    padding: 1rem;
+    background-color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -198,6 +202,9 @@ const Wrapper = styled.div`
     align-items: center;
   }
   @media (max-width: 992px) {
+    .form-section {
+      width: 100%;
+    }
     margin-top: 1rem;
     .mobile {
       height: 25rem;

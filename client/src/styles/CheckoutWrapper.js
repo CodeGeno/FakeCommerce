@@ -4,21 +4,17 @@ const Wrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
   }
   .checkout-container {
-    width: 80%;
-    min-width: 80%;
-
-    max-width: var(--fixed-width);
+    width: 100%;
+    min-width: 100%;
     background: var(--white);
     border-radius: var(--borderRadius);
     box-shadow: var(--shadow-2);
-    border-top-color: var(--primary-500);
-    border-top-style: solid;
-    border-top-width: 5px;
     padding: 2rem 2.5rem;
-    margin: 3rem auto;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
   }
@@ -33,6 +29,8 @@ const Wrapper = styled.div`
   }
   .margin {
     margin-top: 1rem;
+    font-size: 2rem;
+    padding: 0.5rem;
   }
   @media (max-height: 992px) {
     .checkout-container {

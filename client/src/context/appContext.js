@@ -207,13 +207,15 @@ const AppProvider = ({ children }) => {
     try {
       const { data } = await axios.get(`/api/v1/products/${id}`)
 
-      const { category, description, name, price, subCategory, _id } = data
+      const { category, description, name, price, subCategory, _id, image } =
+        data
       const item = {
         category,
         description,
         name,
         price,
         subCategory,
+        image,
         _id,
       }
 
@@ -236,8 +238,11 @@ const AppProvider = ({ children }) => {
       }
 
       localStorage.setItem('cart', JSON.stringify(cart))
-      dispatch({ type: ADD_CART_SUCCESS, payload: { cart } })
-    } catch (error) {}
+      dispatch({ type: ADD_CART_SUCCESS, payload: { cart, quantity } })
+      clearAlert()
+    } catch (error) {
+      customAlert('danger', 'Error adding product')
+    }
   }
   const changeCartQuantity = (id, value, currentCart) => {
     let cart = currentCart.map((item) => {

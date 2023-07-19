@@ -38,36 +38,52 @@ function Cart() {
   return (
     <Wrapper>
       <div className='page-title'>Cart</div>
-      <div className='cart-section'>
-        <div className='cart-container'>
-          <ul className='cart-row-title'>
-            <li className='name'>Name</li>
-            <li className='quantity'>Quantity</li>
-            <li className='totalPrice'>Total Price</li>
-          </ul>
+      {cart.length > 0 ? (
+        <>
+          {' '}
+          <div className='cart-section'>
+            <div className='cart-container'>
+              <ul className='cart-row-title'>
+                <li className='name'>Name</li>
+                <li className='quantity'>Quantity</li>
+                <li className='totalPrice'>Total Price</li>
+              </ul>
 
-          <CartItemRows />
-        </div>
-      </div>
-      <div className='price-section'>
-        <div className='price-container'>
-          <div className='empty' />
-          <div className='total-price'>{getPriceValues()}</div>
-        </div>
-      </div>
-      <div className='checkout-section'>
-        <div className='checkout-container'>
-          {total > 0 && (
-            <NavLink
-              onClick={setLastUrl}
-              to={user ? '/checkout' : '/login'}
-              className='checkout-btn btn'
-            >
-              Proceed to checkout
+              <CartItemRows />
+            </div>
+          </div>
+          <div className='price-section'>
+            <div className='price-container'>
+              <div className='empty' />
+              <div className='total-price'>{getPriceValues()}</div>
+            </div>
+          </div>
+          <div className='checkout-section'>
+            <div className='checkout-container'>
+              {total > 0 && (
+                <NavLink
+                  onClick={setLastUrl}
+                  to={user ? '/checkout' : '/login'}
+                  className='checkout-btn btn'
+                >
+                  Proceed to checkout
+                </NavLink>
+              )}
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className='empty-cart-section'>
+            <h2>Your cart is empty !</h2>
+          </div>
+          <div className='home-button-section'>
+            <NavLink to='/' className='btn'>
+              Go Back Home
             </NavLink>
-          )}
-        </div>
-      </div>
+          </div>
+        </>
+      )}
     </Wrapper>
   )
 }

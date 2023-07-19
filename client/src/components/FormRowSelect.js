@@ -10,10 +10,8 @@ function FormRowSelect({ labelText, name, value, handleChange, list }) {
         onChange={handleChange}
         className='form-select'
       >
+        <option value=''>All</option>
         {list.map((itemValue, index) => {
-          if (itemValue === '') {
-            itemValue = 'all'
-          }
           return (
             <option key={index} value={itemValue}>
               {itemValue}

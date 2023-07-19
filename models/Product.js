@@ -16,7 +16,7 @@ const ProductSchema = new mongoose.Schema({
   subCategory: {
     type: String,
     required: false,
-    enum: ['', 'electrical', 'manual', 'regular'],
+    enum: ['gaming', 'office', 'electrical', 'manual', 'regular', 'ergonomic'],
     default: '',
   },
   description: {
@@ -25,6 +25,11 @@ const ProductSchema = new mongoose.Schema({
     maxlength: 2000,
     required: [true, 'provide a description'],
     default: ['This is a default description. It must be changed later...'],
+  },
+  image: {
+    type: Number,
+    required: true,
+    default: 0,
   },
 })
 

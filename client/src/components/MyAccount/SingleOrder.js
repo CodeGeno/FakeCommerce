@@ -11,7 +11,7 @@ function SingleOrder({ order }) {
         <div className='date'>
           Order Date:<Moment format='DD/MM/YYYY'>{date}</Moment>
         </div>
-        <div className='price'>Total: {total}€</div>
+        <div className='price'>Total: {total.toFixed(2)}€</div>
       </div>
       {show &&
         receiptItems.map((item, index) => {

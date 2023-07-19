@@ -14,7 +14,7 @@ function Checkout() {
   useEffect(() => {
     getAllAddresses()
   }, [])
-  const [selectedAddress, setSelectedAddress] = useState(null)
+  const [selectedAddress, setSelectedAddress] = useState(0)
   useEffect(() => {
     if (allAddresses.length === 0) {
       setShow(true)

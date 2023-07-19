@@ -133,7 +133,15 @@ const reducer = (state, action) => {
     return { ...state }
   }
   if (action.type === ADD_CART_SUCCESS) {
-    return { ...state, cart: action.payload.cart }
+    return {
+      ...state,
+      cart: action.payload.cart,
+      showAlert: true,
+      alertType: 'success',
+      alertText: `${action.payload.quantity} ${
+        action.payload.quantity > 1 ? 'items' : 'item'
+      } added!`,
+    }
   }
   if (action.type === ADD_ADDRESS_ERROR) {
     return {

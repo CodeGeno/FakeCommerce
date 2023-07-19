@@ -2,14 +2,6 @@ import styled from 'styled-components'
 
 const Wrapper = styled.nav`
   transition: var(--transition);
-
-  .burger-section {
-    display: flex;
-  }
-  .burger {
-    display: none;
-    visibility: hidden;
-  }
   padding: 0;
   background: var(--white);
   height: var(--nav-height);
@@ -19,6 +11,13 @@ const Wrapper = styled.nav`
   padding: 0 1rem;
   box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.1);
   height: auto;
+  .burger-section {
+    display: flex;
+  }
+  .burger {
+    display: none;
+    visibility: hidden;
+  }
   .logo {
     display: flex;
     align-items: center;
@@ -35,6 +34,7 @@ const Wrapper = styled.nav`
     font-weight: 800;
     color: var(--primary-500);
   }
+
   .nav-center {
     display: flex;
     width: 90vw;
@@ -130,42 +130,44 @@ const Wrapper = styled.nav`
       display: none;
     }
     .nav-links {
-      display: flex;
       height: auto;
       flex-direction: column;
       align-items: center;
+      display: none;
+      overflow: hidden;
     }
     .nav-link {
       margin: 0;
-      display: flex;
       justify-content: flex-start;
       flex-direction: row;
       align-items: center;
       width: 100%;
-      height: auto;
+    }
+    .active {
+      display: flex;
     }
     a {
       padding: 0;
     }
     p {
       margin: 0 0 0.5rem 0;
-      font-size: 3rem;
+      font-size: 1.6rem;
       font-weight: 800;
     }
     .btn-container {
       display: flex;
       flex-direction: column;
-      margin-bottom: 2rem;
+      margin: 0 0 1rem 0;
     }
 
     .btn {
-      font-size: 3rem;
+      font-size: 1.6rem;
       color: var(--primary-500);
       background-color: var(--white);
       box-shadow: none;
       justify-content: flex-start;
-      margin: 0px;
-      padding: 0.5rem 0.5rem 0 0;
+      margin: 0 0 0.5rem 0;
+      padding: 0rem 0.5rem 0 0;
     }
     .account-text {
       display: none;
@@ -187,7 +189,7 @@ const Wrapper = styled.nav`
       color: var(--primary-500);
       padding: 5px;
       margin: 5px;
-      transition: var(--transition);
+      transition: var(--transition-slow);
     }
     .animation {
       transform: rotate(180deg);
@@ -195,12 +197,13 @@ const Wrapper = styled.nav`
     .nav-list {
       visibility: hidden;
       height: 0px;
-      transition: var(--transition);
+      transition: var(--transition-slow);
     }
     .btn-container {
       visibility: hidden;
       height: 0;
       display: none;
+      margin: 0;
       .btn {
         display: flex;
         flex-direction: row;

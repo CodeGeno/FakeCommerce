@@ -10,19 +10,26 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { useState } from 'react'
 function Navbar() {
   const { user, setLastUrl } = useAppContext()
-  const [showList, setShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
+
   return (
-    <Wrapper className='mobile'>
+    <Wrapper>
       <div className='burger-section'>
-        <NavLink to='/' className='logo-container'>
+        <NavLink
+          to='/'
+          className='logo-container'
+          onClick={() => {
+            setShowMenu(false)
+          }}
+        >
           <Logo />
           akecommerce
         </NavLink>
 
         <button
-          className={showList ? 'burger animation' : 'burger'}
+          className={showMenu ? 'animation burger' : 'burger'}
           onClick={() => {
-            setShowMenu(!showList)
+            setShowMenu(!showMenu)
           }}
         >
           <GiHamburgerMenu />
@@ -30,18 +37,19 @@ function Navbar() {
       </div>
 
       <div>
-        <ul className={showList ? 'visible nav-list' : 'nav-list'}>
-          <div className='nav-links'>
+        <ul className={showMenu ? 'visible nav-list' : 'nav-list'}>
+          <div className={showMenu ? 'active nav-links' : 'nav-links'}>
             {links.map((link) => {
               const { text, path, id, icon } = link
 
               return (
                 <NavLink
                   to={path}
-                  className={({ isActive }) =>
-                    isActive ? 'nav-link active' : 'nav-link'
-                  }
+                  className='nav-link'
                   key={id}
+                  onClick={() => {
+                    setShowMenu(false)
+                  }}
                 >
                   <p>{text}</p>
                   <span className='icon'>{icon}</span>
@@ -51,12 +59,21 @@ function Navbar() {
           </div>
         </ul>
       </div>
-      <div className={showList ? 'visible btn-container' : 'btn-container'}>
-        <NavLink to='/cart' className='btn'>
+      <div className={showMenu ? 'visible btn-container' : 'btn-container'}>
+        <NavLink
+          to='/cart'
+          className='btn'
+          onClick={() => {
+            setShowMenu(false)
+          }}
+        >
           <FaShoppingCart />
         </NavLink>
         <NavLink
-          onClick={setLastUrl}
+          onClick={() => {
+            setLastUrl()
+            setShowMenu(false)
+          }}
           to={user ? '/myaccount' : '/login'}
           className='btn'
         >

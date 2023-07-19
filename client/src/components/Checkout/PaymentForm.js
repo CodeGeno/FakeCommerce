@@ -25,7 +25,6 @@ export default function PaymentForm() {
     if (!stripe) {
       return
     }
-
     stripe.retrievePaymentIntent(clientSecret)
   })
   const handleSubmit = async (e) => {

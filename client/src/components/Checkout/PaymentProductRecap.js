@@ -15,7 +15,7 @@ function PaymentProductRecap() {
             return <PaymentRecapSingleItem key={index} item={item} />
           })}
       </div>
-      <div className='due'>Total: {total} €</div>
+      <div className='due'>Total: {total.toFixed(2)} €</div>
     </div>
   )
 }

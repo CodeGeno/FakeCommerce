@@ -40,7 +40,7 @@ const Wrapper = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 0 2rem;
+    margin: 0 0 1rem 0;
   }
   .receipt-item-box {
     display: flex;

@@ -84,10 +84,8 @@ const AppProvider = ({ children }) => {
       return response
     },
     (error) => {
-      console.log(error.response)
       if (error.response.status === 401) {
-        console.log('Logout user')
-        //logoutUser()
+        logoutUser()
       }
       return Promise.reject(error)
     }
@@ -105,7 +103,6 @@ const AppProvider = ({ children }) => {
   const clearAlert = () => {
     setTimeout(() => {
       dispatch({ type: CLEAR_ALERT })
-      console.log('clearing')
     }, 3000)
   }
   const handleChange = ({ name, value }) => {
@@ -146,7 +143,6 @@ const AppProvider = ({ children }) => {
   const updateUser = async (oldPassword, newPassword) => {
     const { user } = state
     const { email } = user
-    console.log(user)
     dispatch({ type: UPDATE_USER_BEGIN })
     try {
       let response = await authFetch.patch('auth/updateUser', {
@@ -155,9 +151,7 @@ const AppProvider = ({ children }) => {
         newPassword,
       })
       const { data } = response
-      console.log(data)
     } catch (error) {}
-    console.log(user)
   }
   const getSingleProduct = async (id) => {
     dispatch({ type: GET_SINGLE_PRODUCT_BEGIN, payload: { isLoading: true } })
@@ -223,7 +217,6 @@ const AppProvider = ({ children }) => {
       let counter = 0
       let cart
       tempCart = tempCart.map((item) => {
-        console.log('boucle')
         if (item._id === id) {
           counter++
           item.quantity += quantity
@@ -300,8 +293,6 @@ const AppProvider = ({ children }) => {
         type: GET_ALL_ADDRESSES_ERROR,
         payload: { msg: error.response.data.msg },
       })
-
-      console.log(error)
     }
   }
   const deliveryAddressSetup = (index) => {
@@ -312,7 +303,6 @@ const AppProvider = ({ children }) => {
 
   const addReceipt = async () => {
     const { cart, total, user } = state
-    console.log(cart, total)
 
     let receipt = {
       createdBy: user._id,
@@ -332,7 +322,6 @@ const AppProvider = ({ children }) => {
 
     try {
       let response = await authFetch.post('/payment/receipt', receipt)
-      console.log(response)
     } catch (error) {}
   }
   const setClient_Secret = (client_Secret) => {
@@ -342,16 +331,13 @@ const AppProvider = ({ children }) => {
     dispatch({ type: GET_PUBLISHABLE_KEY_BEGIN })
     try {
       let response = await authFetch('/payment/config')
-      console.log(response)
       const { data } = response
       const { publishableKey } = data
-      console.log(publishableKey)
       dispatch({
         type: GET_PUBLISHABLE_KEY_SUCCESS,
         payload: { publishableKey },
       })
     } catch ({ error }) {
-      console.log(error)
       dispatch({ type: GET_PUBLISHABLE_KEY_ERROR })
     }
   }

@@ -9,31 +9,44 @@ export const Wrapper = styled.section`
     position: relative;
   }
   .discover-band {
-    background-color: var(--primary-500);
+    background: rgb(143, 174, 194);
+    background: linear-gradient(
+      0deg,
+      rgba(143, 174, 194, 1) 0%,
+      rgba(77, 117, 141, 1) 50%,
+      rgba(61, 93, 112, 1) 100%
+    );
     color: white;
     margin: 3rem 0 1.5rem 0;
     display: flex;
     text-align: center;
     justify-content: center;
-
     width: 100%;
   }
   .title {
     font-family: var(--coverFont);
   }
-  .wrapperText {
+  .wrapperCover {
     position: absolute;
-    top: 20%;
-    left: 15%;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 1.2rem;
     color: white;
     display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
+    backdrop-filter: blur(5px);
     padding: 1rem;
   }
-
+  .wrapper-box {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
   .hero-banner {
     height: auto;
     width: 100%;
@@ -104,26 +117,23 @@ export const Wrapper = styled.section`
       font-size: 2rem;
     }
 
-    .wrapperText {
-      position: absolute;
-      top: 15%;
-      left: 20%;
-      font-size: 1.2rem;
-      color: white;
-      display: flex;
-      flex-direction: column;
-    }
     .category-box {
       flex-basis: 100%;
       background-color: rgba(0, 0, 0, 0.7);
     }
-    .wrapperText {
+    .wrapperCover {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 0.4rem;
-      h1 {
+      -items: center;
+    }
+    .wrapper-box {
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align h1 {
         font-size: 2rem;
         font-weight: 800;
         padding: 0.5rem;

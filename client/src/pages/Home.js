@@ -1,5 +1,5 @@
 import Wrapper from '../styles/HomeWrapper.js'
-import homeImage from '../assets/home/home.jpg'
+import homeImage from '../assets/HOME.png'
 
 import chairImage from '../assets/home/chair.jpg'
 import deskImage from '../assets/home/desk.jpeg'
@@ -11,12 +11,10 @@ function Home() {
         <div>
           <div className='top-section'>
             <img src={homeImage} className='hero-banner' />
-            <div className='wrapperText'>
-              <h1 className='title'>
-                Better <br />
-                your <br />
-                posture
-              </h1>
+            <div className='wrapperCover'>
+              <div className='wrapper-box'>
+                <h1 className='title'>Better your posture</h1>
+              </div>
             </div>
           </div>
           <div className='category-container'>
@@ -27,7 +25,7 @@ function Home() {
               <NavLink to='/chairs' className='category-box'>
                 <div className='img-box'>
                   <img src={chairImage} />
-                  <div class='text-overlay'>
+                  <div className='text-overlay'>
                     <p>Chairs</p>
                   </div>
                 </div>
